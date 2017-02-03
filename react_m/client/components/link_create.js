@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 class LinkCreate extends Component {
 	handleSubmit(event) {
        event.preventDefault();
-       console.log(this.refs.input.value);
+       
+       Meteor.call('links.insert', this.refs.input.value);
 	}
 
 	render() {
