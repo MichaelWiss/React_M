@@ -4,7 +4,7 @@ import { check, Match } from 'meteor/check';
 
 Meteor.methods({
 	'links.insert': function(url) {
-		chaeck(url, Match.Where(url => validUrl.isUri(url)));
+		check(url, Match.Where(url => validUrl.isUri(url)));
 	}
 });
 
