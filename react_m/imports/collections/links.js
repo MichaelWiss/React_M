@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import validUrl from 'valid-url';
 import { check, Match } from 'meteor/check';
