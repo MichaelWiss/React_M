@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Links } from '../imports/collections/links';
+import { WebApp } from 'meteor/webapp';
 
 
 Meteor.startup(() => {
@@ -8,3 +9,7 @@ Meteor.startup(() => {
      return Links.find({});
   });
 });
+
+WebApp.connectHandlers
+  .user(req => console.log(req));
+  
