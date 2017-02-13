@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Links } from '../imports/collections/links';
 import { WebApp } from 'meteor/webapp';
+import ConnectRoute from 'connect-route';
 
 
 Meteor.startup(() => {
@@ -10,6 +11,9 @@ Meteor.startup(() => {
   });
 });
 
-WebApp.connectHandlers
-  .user(req => console.log(req));
-  
+const middleware = ConnectRoute(function(router) {
+    router.get('/:token', (req) => console.log(req));
+});
+
+WebApp.connectHandlers.use(middleware);
+
