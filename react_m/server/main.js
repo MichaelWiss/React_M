@@ -18,15 +18,16 @@ function onRoute(req, res, next) {
 	//a matching link
 const link = Links.findOne({ token: req.params.token });
 
-if (link) {}
+if (link) {
 	//if we find a link object, redirect the user to the 
 	//long url
 	res.writeHead(307, { 'Location': link.url });
 	res.end();
-} else {}
+  } else {
 
 	//if we don't find a link object, send the user
 	//to our normal React app
+   next();
   } 
 }
 
